@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 import { useMatch } from 'react-router-dom';
 
 const SwitchNavLogin = () => {
@@ -31,7 +31,8 @@ const SwitchNavLogin = () => {
  
   return (
     <nav className="switchLogin">
-      <NavLink
+      
+      <Link
         onClick={() => {
           setStyle(active);
           setStyle2(inActive);
@@ -41,8 +42,8 @@ const SwitchNavLogin = () => {
         to="/login/enter"
       >
         Login
-      </NavLink>
-      <NavLink
+      </Link>
+      <Link
         onClick={() => {
           setStyle(inActive);
           setStyle2(active);
@@ -53,7 +54,7 @@ const SwitchNavLogin = () => {
         
       >
         Sign Up
-      </NavLink>
+      </Link>
     </nav>
   );
 };

@@ -1,0 +1,22 @@
+.about{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about > h1 > a{
+  font-weight: normal;
+}
+.about .text{
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: rgb(99, 99, 99);
+}
+
+.emoji{
+  font-size: 1.1em;
+  font-weight: bold;
+  color: rgb(99, 99, 99);
+}

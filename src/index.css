@@ -80,10 +80,11 @@ header{
   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.068)
 }
 
-header a {
-  font-size: 1.3em;
+header > nav > a {
+  font-size: 1.2em;
   padding: 10px 15px;
   border-radius: 15px;
+  white-space: nowrap;
 }
 
 header span{
@@ -149,7 +150,7 @@ p.text{
   text-align: center;
   padding:30px;
   color: #7c7c7c;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -193,7 +194,36 @@ footer{
   left: 0;
   background-color: #e0e0e0;
 }
-
 @media (max-height: 580px) {
   .switchLogin{top: 5px;}
+}
+
+@media (max-width: 580px) {
+
+  header > nav > a{
+    font-size: 1em;
+  }
+  .switchLogin a {
+    font-size: 1.1em;
+  }
+
+  body{
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 500px){
+  header > span > a {
+    display: none;
+  }
+  header {
+    padding-right: 30px;
+    justify-content: center;
+  }
+}
+@media (max-width: 350px){
+  header > nav > a {
+    padding: 10px;
+  }
+
 }
