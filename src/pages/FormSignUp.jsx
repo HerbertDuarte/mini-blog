@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../hooks/useAuthentication";
-import LoadingCircle from "./LoadingCircle";
+import LoadingCircle from "../components/LoadingCircle";
 
 const FormSignUp= () => {
   const [email, setEmail] = useState('');

@@ -1,13 +1,18 @@
+import './index.css'
+import App from './App'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+// pages
+
 import Home from './pages/Home'
 import Login from './pages/Login'
-import FormSignUp from './components/FormSignUp'
-import FormLogin from './components/FormLogin'
+import Dashboard from './pages/Dashboard'
+import NewPost from './pages/NewPost'
+import FormSignUp from './pages/FormSignUp'
+import FormLogin from './pages/FormLogin'
+
 
 const routes = createBrowserRouter([
   {
@@ -35,13 +40,24 @@ const routes = createBrowserRouter([
             element: <FormLogin/>
           }
         ]
-      }
+      },
+      {
+        path:"/dashboard",
+        element: <Dashboard/> 
+      },
+      {
+        path:"/newpost",
+        element: <NewPost/>
+      },
     ]
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={routes}/>
-  </React.StrictMode>
+  
+     
+    <React.StrictMode>
+      <RouterProvider router={routes}/>
+    </React.StrictMode>
+
 )
