@@ -18,6 +18,7 @@ body{
   justify-content: center;
 
   height: 100vh;
+  min-height: 500px;
   width: 100%;
   padding: 0 15px;
 
@@ -87,6 +88,10 @@ header > nav > a {
   white-space: nowrap;
 }
 
+header > nav > a:hover{
+  color: #dfae6f;
+}
+
 header span{
   font-size: 1.3em
 }
@@ -94,6 +99,11 @@ header span{
 header .active{
   background-color: #e0e0e0;
   color: #2e2e2e;
+}
+
+header .active:hover{
+  color: #fdfdfd;
+  background-color: #dfae6f;
 }
 
 a, .my_link{
@@ -174,7 +184,9 @@ button{
   border-radius: 10px;
   font-size: 1.1em;
   margin: 7px;
-
+}
+button:hover{
+  opacity: 0.9;
 }
 .btnDiv{
   width: 100%;
@@ -198,6 +210,14 @@ footer{
 @media (max-height: 580px) {
   .switchLogin{top: 5px;}
 }
+
+@media (max-height: 500px) {
+  .switchLogin{position: relative;}
+  body{
+    padding-bottom: 50px;
+  }
+}
+
 
 @media (max-width: 580px) {
 
