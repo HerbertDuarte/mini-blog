@@ -1,14 +1,14 @@
-import {useState} from "react";
-import '../index.css'
+import { useState, useEffect } from "react";
+import { useAuthentication } from "../hooks/useAuthentication";
+import LoadingCircle from "../components/LoadingCircle";
 
-const FormLogin = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassowrd] = useState();
-
+const FormLogin= () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassowrd] = useState('');
   const [error, setError] = useState(false)
+  const {login, error : authError, loading} = useAuthentication()
 
   const handleSubmit = (e)=>{
-
     e.preventDefault()
 
     const user = {
@@ -16,14 +16,25 @@ const FormLogin = () => {
       password,
     }
 
-    console.log(user)
+    const res = login(user)
+
+    console.log(res)
+
   }
+  useEffect(() => {
+    if(error){
+      console.log(error)
+    }
+  }, [error])
+
+  useEffect(()=>{
+    setError(authError)
+  }, [authError])
 
   return (
     <div className="form">
-
-      <p className="text">fill in your data to access your account:</p>
       <form onSubmit={handleSubmit}>
+
         <label htmlFor="email">Email</label>
         <input
           placeholder="Type your email"
@@ -42,10 +53,11 @@ const FormLogin = () => {
           value={password}
           onChange={(e)=> setPassowrd(e.target.value)}
         />
-        <div className="btnDiv">
-          <button>Login</button>
-        </div>
+        {!loading && <div className="btnDiv"><button>Login</button></div>}
+        {loading && <LoadingCircle/>}
       </form>
+      {error && <span className="error"><p>{error}</p></span>}
+      
     </div>
   );
 };

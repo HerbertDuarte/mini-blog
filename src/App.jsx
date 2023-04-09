@@ -30,16 +30,19 @@ export const App = () => {
     
     onAuthStateChanged(auth, (element)=>{
       setUser(element)
+      console.log(auth)
     })
     
   },[auth])
+  
+  useEffect(()=>console.log(user),[user])
 
   const loadingUser = user === undefined
 
   return (loadingUser? (
     <LoadingCircle/>
   ) : (
-    <AuthContextProvider value={{user}}>
+    <AuthContextProvider value={user}>
         <BrowserRouter>
           <Navbar/>
           <Routes>
@@ -49,8 +52,8 @@ export const App = () => {
               <Route path="/login/sign" element={!user ? <FormSignUp /> : <Navigate to="/"/>} />
               <Route path="/login/enter" element={!user ? <FormLogin /> : <Navigate to="/"/>} />
             </Route>
-            <Route path="/dashboard" element={!user ? <FormLogin /> : <Dashboard/>} />
-            <Route path="/newpost" element={!user ? <FormLogin /> : <NewPost/>} />
+            <Route path="/dashboard" element={user ? <Dashboard/> : <FormLogin/>} />
+            <Route path="/newpost" element={user ? <NewPost/> : <FormLogin/>} />
             <Route path='/about' element={<About/>}/>
           </Routes>
         </BrowserRouter>

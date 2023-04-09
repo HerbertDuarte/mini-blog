@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { useAuthentication } from "../hooks/useAuthentication";
 
 const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+  const { logout } = useAuthentication();
 
-export default Dashboard
+  return (
+    <div>
+      Dashboard
+      <button onClick={logout}>Exit</button>
+    </div>
+  );
+};
+
+export default Dashboard;

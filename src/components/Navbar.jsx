@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { authValue } from "../context/AuthContext";
+import { useAuthentication } from "../hooks/useAuthentication";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const user = authValue();
+  const { logout } = useAuthentication();
+
+  useEffect(()=>console.log(user),[user])
 
   return (
     <header>

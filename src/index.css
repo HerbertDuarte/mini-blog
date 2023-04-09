@@ -50,7 +50,7 @@ body{
 
 .error{
   display: flex;
-  width:calc(100% - 60px);
+  width:calc(100% - 20px);
   padding: 10px;
   background-color: rgba(255, 0, 0, 0.192);
   margin: 20px auto;
@@ -141,9 +141,10 @@ label{
 }
 
 form{
-  width: 100vw;
+  width: 100%;
   max-width: 700px;
-  padding: 0 30px;
+  padding: 0 10px;
+  margin: auto;
 }
 
 p.text{
@@ -219,6 +220,12 @@ footer{
   header {
     padding-right: 30px;
     justify-content: center;
+  }
+  form{
+    padding: 0;
+  }
+  .error{
+    width: 100%;
   }
 }
 @media (max-width: 350px){
