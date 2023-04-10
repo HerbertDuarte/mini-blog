@@ -27,7 +27,11 @@ body{
   background-color: #fdfdfd;
 
 }
-/* laoding */
+
+h1{
+  text-align: center;
+}
+
 .loading{
   display: flex;
   justify-content: center;
@@ -97,8 +101,8 @@ header span{
 }
 
 header .active{
-  background-color: #e0e0e0;
-  color: #2e2e2e;
+  color: #fdfdfd;
+  background-color: #dfae6f;
 }
 
 header .active:hover{
@@ -180,7 +184,8 @@ button{
   padding: 10px 20px;
   border: 0;
   background-color: #dfae6f;
-  color: #2e2e2e;
+  color: #fdfdfd;
+  font-weight: bold;
   border-radius: 10px;
   font-size: 1.1em;
   margin: 7px;
@@ -220,17 +225,16 @@ footer{
 
 
 @media (max-width: 580px) {
-
   header > nav > a{
     font-size: 1em;
   }
   .switchLogin a {
     font-size: 1.1em;
   }
-
-  header{
-    font-size: 0.9em;
+  header > nav > a {
+    padding: 12px 10px;
   }
+
 }
 
 @media (max-width: 500px){
@@ -248,9 +252,12 @@ footer{
     width: 100%;
   }
 }
-@media (max-width: 350px){
-  header > nav > a {
-    padding: 10px;
-  }
 
+@media (max-width: 375px){
+  header{
+    font-size: 0.9em;
+  }
+}
+@media (max-width: 350px){
+  
 }
