@@ -30,13 +30,9 @@ export const App = () => {
     
     onAuthStateChanged(auth, (element)=>{
       setUser(element)
-      console.log(auth)
     })
     
   },[auth])
-  
-  useEffect(()=>console.log(user),[user])
-
   const loadingUser = user === undefined
 
   return (loadingUser? (

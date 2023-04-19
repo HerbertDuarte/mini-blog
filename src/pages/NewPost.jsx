@@ -29,7 +29,11 @@ const NewPost = () => {
     }
 
     // create tags array
-    const arrayTags = tags.split(' ')
+    const arrayTags = tags.split(',').map((tag)=>{
+      return (tag.replace(/\s/g, ''))
+    })
+
+    console.log(arrayTags)
 
     const post = {
       title,

@@ -7,13 +7,11 @@ const Navbar = () => {
   const user = authValue();
   const { logout } = useAuthentication();
 
-  useEffect(()=>console.log(user),[user])
-
   return (
     <header>
       <span translate="no">
         <a href="/">
-          Mini<b>Blog</b>
+          H<b>Blog</b>
         </a>
       </span>
       <nav>
