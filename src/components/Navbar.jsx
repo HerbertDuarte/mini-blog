@@ -1,17 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { authValue } from "../context/AuthContext";
-import { useAuthentication } from "../hooks/useAuthentication";
-import { useEffect } from "react";
 
 const Navbar = () => {
   const user = authValue();
-  const { logout } = useAuthentication();
 
   return (
     <header>
       <span translate="no">
         <a href="/">
-          H<b>Blog</b>
+          mini<b>Blog</b>
         </a>
       </span>
       <nav>

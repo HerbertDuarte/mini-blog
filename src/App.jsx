@@ -20,6 +20,7 @@ import NewPost from './pages/NewPost'
 import FormSignUp from './pages/FormSignUp'
 import FormLogin from './pages/FormLogin'
 import About from './pages/About';
+import PostDetails from './pages/PostDatails'
 
 export const App = () => {
   
@@ -43,6 +44,7 @@ export const App = () => {
           <Navbar/>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path='/post/:id' element={<PostDetails/>}/>
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>}>
               <Route path="/login" element={!user ? <FormLogin /> : <Navigate to="/"/>} />
               <Route path="/login/sign" element={!user ? <FormSignUp /> : <Navigate to="/"/>} />
