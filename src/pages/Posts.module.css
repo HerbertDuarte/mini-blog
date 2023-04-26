@@ -13,7 +13,8 @@
 .postDatailContaniner{
   max-width: 1280px;
   margin: 15px auto;
-  border-radius: 8px
+  border-radius: 8px;
+  min-height: calc(100vh - 150px);
 }
 .searchBtn, .search{
   margin: auto;

@@ -23,7 +23,7 @@ const PostDatails = () =>
 
     console.log(post)
     return (
-      <div>
+      <>
         {!post ? (
           <LoadingCircle />
         ) : (
@@ -62,7 +62,7 @@ const PostDatails = () =>
             )}
           </div>
         )}
-      </div>
+      </>
     );
   };
 
