@@ -10,6 +10,7 @@ const NewPost = () => {
   const [tags, setTags] = useState("");
   const [formError, setFormError] = useState("");
   const [conclud, setConclud] = useState(false);
+  const [links, setLinks] = useState('')
 
   const { insertDocument, response, finished} = useInsertDocument("posts");
 
@@ -33,15 +34,20 @@ const NewPost = () => {
       return (tag.replace(/\s/g, ''))
     })
 
-    console.log(arrayTags)
+    // create links array
+    console.log(links)
+    const arraylinks = links.length !== 0 ? links.split(',').map((link)=>(link.replace(/\s/g, ''))) : false
+    // order paragraphs
+    const newBody = (body.split("\n"))
 
     const post = {
       title,
       urlImage,
-      body,
+      body : newBody,
       arrayTags,
       uid: user.uid,
       createdBy: user.displayName,
+      links: arraylinks
     };
 
     insertDocument(post);
@@ -53,6 +59,7 @@ const NewPost = () => {
       setBody("");
       setTags("");
       setUrlImage("");
+      setLinks("");
       setConclud(true);
       console.log(finished)
     }
@@ -78,7 +85,7 @@ const NewPost = () => {
           onChange={(e) => setUrlImage(e.target.value)}
           type="text"
         />
-        <label translate="no" htmlFor="tags">Tags <span translate="yes">(separated by spaces)</span></label>
+        <label translate="no" htmlFor="tags">Tags <span translate="yes">(separated by comma)</span></label>
         <input
           required
           id="tags"
@@ -94,6 +101,14 @@ const NewPost = () => {
           onChange={(e) => setBody(e.target.value)}
           rows={5}
         ></textarea>
+        <label translate="no" htmlFor="links">References Link<span translate="yes">(separated by comma)</span></label>
+        <input
+          placeholder="It isn't mandatoly" 
+          id="links"
+          value={links}
+          onChange={(e) => setLinks(e.target.value)}
+          type="text"
+        />
         {!response.loading && (
           <div className="btnDiv">
             <button>Create Post</button>

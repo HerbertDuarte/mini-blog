@@ -41,10 +41,25 @@ const PostDatails = () =>
                 return <span key={index}>#{tag}</span>;
               })}
             </p>
-            <p className={styles.postBody}>{post.body}</p>
+            <article className={styles.postBody}>
+              {post.body.map((paragraph, index)=>(
+                <p className={styles.paragraph} key={index}>{paragraph}</p>
+              ))}
+            </article>
             <span className={styles.userDetails}>
               Post created By <strong>@{post.createdBy}</strong>
             </span>
+            {post.links && (
+            <>
+              <hr />
+              <aside className={styles.linksContainer}>
+                <span>References:</span>
+              {post.links.map((link, index) => {
+                  return <p><a className="link" target="_blank" href={link} key={link}>{link}</a></p>
+                })}
+              </aside>
+            </>
+            )}
           </div>
         )}
       </div>

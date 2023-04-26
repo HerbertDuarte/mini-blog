@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useFetchDocuments } from "../hooks/useFetchDocuments";
 import LoadingCircle from "../components/LoadingCircle";
 import styles from "./Posts.module.css";
-import { FaUserAlt } from "react-icons/fa";
+// import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -34,7 +34,10 @@ const Home = () => {
           posts.map((post) => {
             return (
               <div key={post.id} className={styles.card}>
-                <span className={styles.user}><span className={styles.icon}><FaUserAlt className={styles.userIcon} /></span> @{post.createdBy}</span>
+                <span className={styles.user}>
+                  {/* <span className={styles.icon}><FaUserAlt className={styles.userIcon} />
+                </span>  */}
+                @{post.createdBy}</span>
                 <h3 className={styles.title}>
                   {post.title}
                 </h3>
