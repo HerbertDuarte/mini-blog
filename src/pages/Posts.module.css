@@ -1,5 +1,6 @@
-.posts{
-  padding-bottom: 60px;
+.posts, .container{
+  max-width: 900px;
+  margin: auto;
 }
 .postForm{
   padding:  10px 0;
@@ -31,6 +32,31 @@
   text-align: start;
   padding: 20px 0;
 }
+
+.subtitle{
+  text-align: start;
+}
+
+.userInfos{
+  display: block;
+  width: calc(100% - 4.5em - 10px);
+}
+
+.cardUser{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  word-wrap: break-word;
+}
+.cardUser p {
+  word-wrap: break-word;
+}
+.userName{
+  font-size: 2em;
+}
+
 .user{
   font-size: 1.2em;
   display: flex;
@@ -39,15 +65,26 @@
   gap: 5px;
   color: #333333;
 }
-.icon{
-  padding: 8px 8px 5px 8px;
+.userLogoContainer{
+  padding: 10px;
+  /* border: 1px solid #333333; */
+  min-height: 4.5em;
+  min-width: 4.5em;
   border-radius: 50%;
-  border: 1px solid #2e2e2e;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfae6f;
 }
+.icon{
+  font-size: 2.5em;
+  color: #fdfdfd;
+  transform: translateY(-1px);
+}
+
 .userDetails{
   font-size: 1.2em;
   padding: 10px 0;
-  display: inline-block;
   font-style: italic;
 }
 .titleDetails{
@@ -97,7 +134,14 @@
   font-size: 1.1em;
 }
 
-.seeMoreBtn
+.btnContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+
+.postBtn, .seeMoreBtn
 {
   padding: 10px 20px;
   border: 0;
@@ -107,9 +151,28 @@
   border-radius: 10px;
   font-size: 1.1em;
   margin: 7px 0;
+  margin-right: 10px;
   cursor: pointer;
   display: inline-block;
+  max-height: 41px;
+  transition: all .4s;
 }
+
+.seeMoreBtn:hover{
+  background-color: #faa537;
+}
+.pencilIcon, .trash{
+  transform: translateY(1px);
+}
+
+.trashContainer:hover{
+  background-color: rgb(207, 80, 80);
+}
+.pencilContainer:hover{
+  background-color: rgb(80, 131, 207);
+}
+
+
 
 @media (max-width:475px) {
   .card{

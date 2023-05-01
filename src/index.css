@@ -213,16 +213,24 @@ button{
   font-size: 1.1em;
   margin: 7px;
   cursor: pointer;
+  transition: all .4s;
 }
 
 button:hover{
-  opacity: 0.9;
+  background-color: #d8963f;
 }
 .btnDiv{
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logoutDiv{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 footer{

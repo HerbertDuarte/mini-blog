@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from "../pages/Posts.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import {FaPencilAlt, FaTrashAlt} from 'react-icons/fa'
 
-const SinglePost = ({posts}) => {
+const SinglePost = ({posts, edit}) => {
   return (
     <div>
           {posts.map((post) => {
@@ -30,9 +31,23 @@ const SinglePost = ({posts}) => {
                   )
                 })}
                 </p>
-                <Link className={styles.seeMoreBtn} to={'/post/' + post.id}>
-                  See more
-                </Link>
+
+                <div className={styles.btnContainer}>
+                  
+                  <Link className={styles.seeMoreBtn} to={'/post/' + post.id}>
+                    See more
+                  </Link>
+                  {edit && (
+                  <>
+                    <Link className={`${styles.postBtn} ${styles.trashContainer}`} to={'/post/' + post.id}>
+                      <FaTrashAlt  className={styles.trash} />
+                    </Link>
+                    <Link className={`${styles.postBtn} ${styles.pencilContainer}`} to={'/post/' + post.id}>
+                      <FaPencilAlt  className={styles.pencilIcon} />
+                    </Link>
+                  </>
+                  )}
+                </div>
               </div>
             );
           })}
