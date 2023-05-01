@@ -8,7 +8,7 @@ import {
   where,
 } from "firebase/firestore";
 
-export const useFetchDocuments = (docCollection, seach = null, uid = null) => {
+export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   const [documents, setDocuments] = useState(null);
   const [fetchError, setFetchError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,21 @@ export const useFetchDocuments = (docCollection, seach = null, uid = null) => {
         // busca
         // dashboard
 
-        q = await query(collectionRef, orderBy("createdAt", "desc"));
+        if (search) {
+          q = await query(
+            collectionRef,
+            where("arrayTags", "array-contains", search),
+            orderBy("createdAt", "desc")
+          );
+          } else if (uid) {
+          q = await query(
+            collectionRef,
+            where("uid", "==", uid),
+            orderBy("createdAt", "desc")
+          );
+        } else {
+          q = await query(collectionRef, orderBy("createdAt", "desc"));
+        }
 
         await onSnapshot(q, (querySnapshot) => {
           setDocuments(
@@ -48,13 +62,11 @@ export const useFetchDocuments = (docCollection, seach = null, uid = null) => {
     }
 
     loadData();
-  }, [docCollection, seach, uid, cancelled]);
+  }, [docCollection, search, uid, cancelled]);
 
-  useEffect(()=>{
-    return () => setCancelled(true)
-  },[])
+  useEffect(() => {
+    return () => setCancelled(true);
+  }, []);
 
-
-  return {documents, loading, fetchError}
-
+  return { documents, loading, fetchError };
 };

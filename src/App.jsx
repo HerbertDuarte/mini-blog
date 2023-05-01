@@ -21,6 +21,7 @@ import FormSignUp from './pages/FormSignUp'
 import FormLogin from './pages/FormLogin'
 import About from './pages/About';
 import PostDetails from './pages/PostDatails'
+import Search from './pages/Search';
 
 export const App = () => {
   
@@ -45,12 +46,13 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/post/:id' element={<PostDetails/>}/>
+            <Route path='/search/' element={<Search/>}/>
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>}>
               <Route path="/login" element={!user ? <FormLogin /> : <Navigate to="/"/>} />
               <Route path="/login/sign" element={!user ? <FormSignUp /> : <Navigate to="/"/>} />
               <Route path="/login/enter" element={!user ? <FormLogin /> : <Navigate to="/"/>} />
             </Route>
-            <Route path="/dashboard" element={user ? <Dashboard/> : <FormLogin/>} />
+            <Route path="/dashboard/:uid" element={user ? <Dashboard/> : <FormLogin/>} />
             <Route path="/newpost" element={user ? <NewPost/> : <FormLogin/>} />
             <Route path='/about' element={<About/>}/>
           </Routes>

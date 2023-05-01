@@ -18,7 +18,7 @@ const Navbar = () => {
               Home
             </NavLink>
             <NavLink to="/newpost">New Post</NavLink>
-            <NavLink to="/dashboard">Dashboard</NavLink>
+            <NavLink to={`/dashboard/${user.uid}`}>Dashboard</NavLink>
             <NavLink  to="/about">About</NavLink>
           </>
         ) : (
