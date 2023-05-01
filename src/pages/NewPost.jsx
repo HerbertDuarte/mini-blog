@@ -101,7 +101,7 @@ const NewPost = () => {
           onChange={(e) => setBody(e.target.value)}
           rows={5}
         ></textarea>
-        <label translate="no" htmlFor="links">References Link<span translate="yes">(separated by comma)</span></label>
+        <label translate="no" htmlFor="links">References Link <span translate="yes">(separated by comma)</span></label>
         <input
           placeholder="It isn't mandatoly" 
           id="links"
