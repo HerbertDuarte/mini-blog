@@ -44,7 +44,7 @@ const Dashboard = () => {
 
       <div className="logoutDiv">
         <Link to="/login/">
-          <button onClick={logout}>Logout <FaSignOutAlt style={{transform: 'translateY(3px)'}}/></button>
+          <button onClick={logout}><span>Logout  </span><span><FaSignOutAlt style={{transform: 'translateY(3px)'}}/></span></button>
         </Link>
       </div>
     </div>

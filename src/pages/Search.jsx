@@ -13,10 +13,15 @@ const Search = () => {
   console.log(posts);
   return (
     <>
-      <h2>Resultados para : {search}</h2>
+      <h2>Results of : {search}</h2>
       <div className={styles.posts}>
         {posts && <SinglePost posts={posts} />}
         {posts && posts.length === 0 && (
+          <div className="error">
+            <p>Not found posts</p>
+          </div>
+        )}
+        {error || query == undefined  || search == undefined && (
           <div className="error">
             <p>Not found posts</p>
           </div>
