@@ -22,6 +22,8 @@ import FormLogin from './pages/FormLogin'
 import About from './pages/About';
 import PostDetails from './pages/PostDatails'
 import Search from './pages/Search';
+import DeletePost from './pages/DeletePost'
+import EditPost from './pages/EditPost';
 
 export const App = () => {
   
@@ -46,6 +48,8 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/post/:id' element={<PostDetails/>}/>
+            <Route path='/post/:id/edit' element={<EditPost/>}/>
+            <Route path='/post/:id/delete' element={<DeletePost/>}/>
             <Route path='/search/' element={<Search/>}/>
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>}>
               <Route path="/login" element={!user ? <FormLogin /> : <Navigate to="/"/>} />

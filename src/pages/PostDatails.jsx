@@ -16,12 +16,10 @@ const PostDatails = () =>
       if (posts !== null) {
         const isThePost = (post) => post.id == postId
         const foundPost = posts.find((element) => isThePost(element));
-        console.log(foundPost)
         setPost(foundPost);
       }
     }, [posts]);
 
-    console.log(post)
     return (
       <>
         {!post ? (

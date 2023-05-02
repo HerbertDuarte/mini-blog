@@ -89,6 +89,7 @@ const NewPost = () => {
         <input
           required
           id="tags"
+          placeholder="Ex.: current, news, technology"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
           type="text"
@@ -103,7 +104,7 @@ const NewPost = () => {
         ></textarea>
         <label translate="no" htmlFor="links">References Link <span translate="yes">(separated by comma)</span></label>
         <input
-          placeholder="It isn't mandatoly" 
+          placeholder="this is not required" 
           id="links"
           value={links}
           onChange={(e) => setLinks(e.target.value)}

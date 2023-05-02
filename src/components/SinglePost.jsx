@@ -39,10 +39,10 @@ const SinglePost = ({posts, edit}) => {
                   </Link>
                   {edit && (
                   <>
-                    <Link className={`${styles.postBtn} ${styles.trashContainer}`} to={'/post/' + post.id}>
+                    <Link className={`${styles.postBtn} ${styles.trashContainer}`} to={'/post/' + post.id + '/delete'}>
                       <FaTrashAlt  className={styles.trash} />
                     </Link>
-                    <Link className={`${styles.postBtn} ${styles.pencilContainer}`} to={'/post/' + post.id}>
+                    <Link className={`${styles.postBtn} ${styles.pencilContainer}`} to={'/post/' + post.id + '/edit'}>
                       <FaPencilAlt  className={styles.pencilIcon} />
                     </Link>
                   </>

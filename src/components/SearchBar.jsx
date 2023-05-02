@@ -22,7 +22,7 @@ const SearchBar = () => {
           onChange={(e) => setQuery(e.target.value)}
           value={query}
           type="text"
-          placeholder="Search a post using a tag..."
+          placeholder="Search using a tag..."
         />
         <button className={styles.searchBtn} >Search</button>
       </form>

@@ -226,6 +226,13 @@ button:hover{
   justify-content: center;
 }
 
+.delete{
+  background-color: rgba(255, 67, 67, 0.781);
+}
+.delete:hover{
+  background-color: rgb(255, 67, 67);
+}
+
 .logoutDiv{
   width: 100%;
   display: flex;
