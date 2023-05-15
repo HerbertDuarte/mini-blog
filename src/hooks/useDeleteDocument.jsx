@@ -1,6 +1,6 @@
 import { db } from "../firebase/config";
 import { useState, useReducer, useEffect } from "react";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { doc, deleteDoc} from "firebase/firestore";
 
 
 const initialState = {
@@ -8,12 +8,12 @@ const initialState = {
   error: false
 }
 
-const  insertReducer = (state, action) =>{
+const  deleteReducer = (state, action) =>{
 
   switch(action.type){
     case 'LOADING':
       return{loading : true, error: false}
-    case 'INSERTED_DOC':
+    case 'DELETED_DOC':
       return{loading : false, error: false}
     case 'ERROR':
       return{loading : false, error: action.payload}
@@ -23,9 +23,9 @@ const  insertReducer = (state, action) =>{
 
 }
 
-export const useInsertDocument = (docCollection) =>{
+export const useDeleteDocument = (docCollection) =>{
   
-  const [response, dispatch] = useReducer(insertReducer, initialState)
+  const [response, dispatch] = useReducer(deleteReducer, initialState)
 
   // prevent memory leak
 
@@ -40,21 +40,19 @@ export const useInsertDocument = (docCollection) =>{
     }
   }
 
-  const insertDocument = async (document) =>{
+  const deleteDocument = async (id) =>{
     checkCancellation({
       type : 'LOADING'
     })
     try {
-      const newDocument = {...document, createdAt: Timestamp.now()}
-
-      const insertedDoc = await addDoc(collection(db, docCollection),newDocument)
+      const deletedDocument = await deleteDoc(doc(db, docCollection, id))
 
       checkCancellation({
-        type: 'INSERTED_DOC',
-        payload: insertedDoc
+        type: 'DELETED_DOC',
+        payload: deletedDocument
       })
       
-      console.log('inserted doc')
+      console.log('deleted doc')
       setFinished(true)
  
     } catch (error) {
@@ -67,5 +65,5 @@ export const useInsertDocument = (docCollection) =>{
 
   useEffect(()=>setCancelled(true),[])
 
-  return {insertDocument, response, finished}
+  return {deleteDocument, response, finished}
 }

@@ -4,6 +4,7 @@ import { useFetchDocuments } from "../hooks/useFetchDocuments";
 import { useQuery } from "../hooks/useQuery";
 import SinglePost from "../components/SinglePost";
 import styles from "./Posts.module.css";
+import LoadingCircle from "../components/LoadingCircle";
 
 const Search = () => {
   const query = useQuery();
@@ -13,20 +14,23 @@ const Search = () => {
   console.log(posts);
   return (
     <>
-      <h2>Results of : {search}</h2>
-      <div className={styles.posts}>
-        {posts && <SinglePost posts={posts} />}
-        {posts && posts.length === 0 && (
-          <div className="error">
-            <p>Not found posts</p>
-          </div>
-        )}
-        {error || query == undefined  || search == undefined && (
-          <div className="error">
-            <p>Not found posts</p>
-          </div>
-        )}
-      </div>
+      {!loading && (<>
+        <h2>Results of : {search}</h2>
+        <div className={styles.posts}>
+          {posts && <SinglePost posts={posts} />}
+          {posts && posts.length === 0 && (
+            <div className="error">
+              <p>Not found posts</p>
+            </div>
+          )}
+          {error || query == undefined  || search == undefined && (
+            <div className="error">
+              <p>Not found posts</p>
+            </div>
+          )}
+        </div>
+      </>)}
+      {loading && <LoadingCircle/>}
     </>
   );
 };

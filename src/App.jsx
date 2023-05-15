@@ -48,8 +48,8 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/post/:id' element={<PostDetails/>}/>
-            <Route path='/post/:id/edit' element={<EditPost/>}/>
-            <Route path='/post/:id/delete' element={<DeletePost/>}/>
+            <Route path="/post/:id/edit" element={user ? <EditPost /> : <Navigate to="/"/>} />
+            <Route path="/post/:id/delete" element={user ? <DeletePost /> : <Navigate to="/"/>} />
             <Route path='/search/' element={<Search/>}/>
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/"/>}>
               <Route path="/login" element={!user ? <FormLogin /> : <Navigate to="/"/>} />
