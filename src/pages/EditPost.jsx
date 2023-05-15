@@ -32,10 +32,12 @@ const EditPost = () => {
       setBody(doc.body);
       let textBody = doc.body.join("\n");
       const textTags = doc.arrayTags.join(", ");
-      const textLinks = doc.links.join(", ");
+      if(doc.links){
+        const textLinks = doc.links.join(", ");
+        setLinks(textLinks);
+      }
 
       setBody(textBody);
-      setLinks(textLinks);
       setTags(textTags);
     }
   }, [doc]);
@@ -146,7 +148,7 @@ const EditPost = () => {
               placeholder="this is not required"
               id="links"
               value={links}
-              onChange={(e) => setLinks(e.target.value)}
+                onChange={(e) => setLinks(e.target.value)}
               type="text"
             />
             {!response.loading && (
