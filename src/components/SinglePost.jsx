@@ -10,7 +10,7 @@ const SinglePost = ({posts, edit}) => {
             try {
               return (
                 <div key={post.id} className={styles.card}>
-                  <span className={styles.user}>
+                  <span translate='no' className={styles.user}>
                     {/* <span className={styles.icon}><FaUserAlt className={styles.userIcon} />
                   </span>  */}
                   @{post.createdBy}</span>
@@ -27,9 +27,12 @@ const SinglePost = ({posts, edit}) => {
                   </div>
                   <p className={styles.tags}>
                   {post.arrayTags.map((tag, index)=>{
-                    return(
-                      <span key={index} >#{tag}</span>
-                    )
+                    if(tag.length !== 0 && tag != '_' && tag != ' ' ){
+                      return(
+                        <span key={index}>#{tag}</span>
+                      )
+                    }
+                    return
                   })}
                   </p>
   
