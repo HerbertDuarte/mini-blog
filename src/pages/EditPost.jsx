@@ -32,7 +32,7 @@ const EditPost = () => {
       setBody(doc.body);
       let textBody = doc.body.join("\n");
       const textTags = doc.arrayTags.join(", ");
-      if(doc.links){
+      if (doc.links) {
         const textLinks = doc.links.join(", ");
         setLinks(textLinks);
       }
@@ -148,13 +148,18 @@ const EditPost = () => {
               placeholder="this is not required"
               id="links"
               value={links}
-                onChange={(e) => setLinks(e.target.value)}
+              onChange={(e) => setLinks(e.target.value)}
               type="text"
             />
             {!response.loading && (
               <div className="btnDiv">
                 <button className="delete">
-                  <Link style={{color : 'white'}} to={"/dashboard/" + user.uid}>Cancel</Link>
+                  <Link
+                    style={{ color: "white" }}
+                    to={"/dashboard/" + user.uid}
+                  >
+                    Cancel
+                  </Link>
                 </button>
                 <button>Edit post</button>
               </div>
@@ -179,9 +184,14 @@ const EditPost = () => {
         </span>
       )}
       {conclud && (
-        <span className="success">
-          <p>Post edited successfully</p>
-        </span>
+        <div className="btnDiv">
+          <span className="success">
+            <p>Post edited successfully</p>
+          </span>
+          <Link to={"/dashboard/" + user.uid}>
+            <button>Back to dashboard</button>
+          </Link>
+        </div>
       )}
 
       {loading && <LoadingCircle />}
