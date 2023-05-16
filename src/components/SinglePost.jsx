@@ -4,6 +4,7 @@ import { Link} from "react-router-dom";
 import {FaPencilAlt, FaTrashAlt} from 'react-icons/fa'
 
 const SinglePost = ({posts, edit}) => {
+
   return (
     <div>
           {posts.map((post) => {
@@ -27,12 +28,9 @@ const SinglePost = ({posts, edit}) => {
                   </div>
                   <p className={styles.tags}>
                   {post.arrayTags.map((tag, index)=>{
-                    if(tag.length !== 0 && tag != '_' && tag != ' ' ){
                       return(
-                        <span key={index}>#{tag}</span>
+                        <span translate='no' key={index}>#{tag}</span>
                       )
-                    }
-                    return
                   })}
                   </p>
   
