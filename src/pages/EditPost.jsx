@@ -184,14 +184,16 @@ const EditPost = () => {
         </span>
       )}
       {conclud && (
-        <div className="btnDiv">
+        <>
           <span className="success">
             <p>Post edited successfully</p>
           </span>
+        <div className="btnDiv">
           <Link to={"/dashboard/" + user.uid}>
             <button>Back to dashboard</button>
           </Link>
         </div>
+        </>
       )}
 
       {loading && <LoadingCircle />}
